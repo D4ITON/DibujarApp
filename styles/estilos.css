@@ -1,0 +1,61 @@
+/**
+  @título   : Interfaz basada en "Adobe XD CC"
+  @tipo		: CSS GRID layout
+  @fecha    : 26.11.2018
+  @autor    : DALTHON
+  @versión  : 0.0.5
+  @curso    : CAD
+*/
+@font-face {
+    font-family:Nunito;
+    src:url(../fonts/Nunito/Nunito-ExtraLight.ttf);
+}
+@font-face {
+    font-family:Nunito-bold;
+    src:url(../fonts/Nunito/Nunito-Bold.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+	font-family: 'Nunito';
+	height: 100vh;
+}
+/*	---------- 	MAIN CONTAINER 	----------	*/
+.main-container{
+	background-color: #E4E4E4;
+	display: grid;
+	grid-template-columns:  repeat(25, 1fr);
+  	grid-template-rows: repeat( 15, 1fr);
+	height: 100vh;
+	grid-gap: 5px;
+}
+.canvas{
+	border:1px solid #BABABA;
+  	grid-column: 3 / 15;
+  	grid-row: 3 / 7;
+  	background-color: #FFFFFF;
+}
+.header{
+	grid-column: 1 / 26;
+	grid-row: 1 / 2;
+	background-color: #F5F5F5;
+}
+.menu-left{
+	background-color: #F5F5F5;
+	grid-column: 1 / 2;
+	grid-row: 2 / 16;
+}
+.menu-right{
+	background-color: #F5F5F5;
+	grid-column: 22 / 26;
+	grid-row: 2 / 16;
+}
+
+
+
+
+

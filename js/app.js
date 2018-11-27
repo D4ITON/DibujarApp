@@ -12,9 +12,9 @@
 var limpiar = document.getElementById("limpiar");
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
-var cw = canvas.width = 300,
+var cw = canvas.width = 950,
   cx = cw / 2;
-var ch = canvas.height = 300,
+var ch = canvas.height = 500,
   cy = ch / 2;
 
 var dibujar = false;

@@ -54,7 +54,11 @@ body{
 	grid-column: 22 / 26;
 	grid-row: 2 / 16;
 }
-
+/* -------- estilos header -------- */
+.header-title{
+	font-size: 13px;
+	text-align: center;
+}
 
 
 

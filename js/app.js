@@ -1,7 +1,7 @@
 /**
   @título   : Interfaz basada en "Adobe XD CC"
   @fecha    : 26.11.2018
-  @tipo		: JavaScript
+  @tipo		  : JavaScript
   @autor    : DALTHON
   @versión  : 0.0.5
   @curso    : CAD

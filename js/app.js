@@ -9,7 +9,7 @@
 
 /* ------ DETECCION DE LA POSICION DEL MOUSE------  */
 
-var limpiar = document.getElementById("limpiar");
+var limpiar = document.getElementById("funcion_10");
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var cw = canvas.width = 950,
@@ -101,6 +101,7 @@ function redibujarTrazados(){
   for(var i = 0; i < Trazados.length; i++)
   alisarTrazado(Trazados[i]);
 }
+/* ------ deteccion de la posicion del mouse ------ */
 
 function oMousePos(canvas, evt) {
   var ClientRect = canvas.getBoundingClientRect();
@@ -109,3 +110,5 @@ function oMousePos(canvas, evt) {
     y: Math.round(evt.clientY - ClientRect.top)
   }
 }
+
+/* ------ fin de detectar la posicion del mouse ------ */

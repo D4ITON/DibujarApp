@@ -59,9 +59,9 @@ body{
 	font-size: 13px;
 	text-align: center;
 }
-.no-active{
+/*.no-active{
 	color: #000;
-}
+}*/
 .active{
 	color: #10B22B;
 }

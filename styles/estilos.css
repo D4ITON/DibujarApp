@@ -51,7 +51,7 @@ body{
 }
 .menu-right{
 	background-color: #F5F5F5;
-	grid-column: 22 / 26;
+	grid-column: 20 / 26;
 	grid-row: 2 / 16;
 }
 /* -------- estilos header -------- */

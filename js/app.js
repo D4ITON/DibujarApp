@@ -32,8 +32,9 @@ function oMousePos(canvas, evt) {
 /* =========== MENU DE OPCIONES =========== */
 $(function(){
     $("#menu-left button").on("click", function(){
-      // dibujar_trazo_fino();
+      dibujar_trazo_fino();
       // dibujar_areografo();
+      
     });
 });
 

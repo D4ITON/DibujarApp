@@ -31,10 +31,16 @@ function oMousePos(canvas, evt) {
 
 /* =========== MENU DE OPCIONES =========== */
 $(function(){
-    $("#menu-left button").on("click", function(){
-      dibujar_trazo_fino();
-      // dibujar_areografo();
+    // $("#menu-left button").on("click", function(){
+    //   dibujar_trazo_fino();
+    //   // dibujar_areografo();
       
+    // });
+    $("#funcion_03").on("click", function(){
+      dibujar_trazo_fino();
+    });
+    $("#funcion_04").on("click", function(){
+      dibujar_areografo();
     });
 });
 

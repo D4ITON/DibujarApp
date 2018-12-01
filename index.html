@@ -7,26 +7,80 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
-	<div class="main-container">
+	<div class="main-container tabs-container">
 		<div class="header">
 			<h1 class="header-title">Untitled</h1>
 			<a id="download" class="button" download="download.png" href="#" target="_blank">Descargar</a>
 		</div>
 		<canvas class="canvas" id="canvas" width="900" height="500"></canvas>
-		<div class="menu-left" id="menu-left">
-			<button id="funcion_01" class="active" >mouse</button>
-			<button id="funcion_02" >aspero</button>
-			<button id="funcion_03" >trazo fino</button>
-			<button id="funcion_04" >aerografo</button>
-			<button id="funcion_05" >texto</button>
-			<button id="funcion_06" >linea</button>
-			<button id="funcion_07" >circulo</button>
-			<!-- <button id="funcion_08" >guardar</button> -->
-			<button id="funcion_08" >rectangulo</button>
+		<div class="menu-left tabs" id="tabs">
+			<button id="funcion_01" class="tabs__item active" >mouse</button>
+			<button id="funcion_02" class="tabs__item">aspero</button>
+			<button id="funcion_03" class="tabs__item">trazo fino</button>
+			<button id="funcion_04" class="tabs__item">aerografo</button>
+			<button id="funcion_05" class="tabs__item">texto</button>
+			<button id="funcion_06" class="tabs__item">linea</button>
+			<button id="funcion_07" class="tabs__item">circulo</button>
+			<button id="funcion_08" class="tabs__item">rectangulo</button>
 			<button id="funcion_09" >limpiar</button>
 		</div>
-		<div class="menu-right">
+		<div class="menu-right panels">
+			<div class="panels__item active">
+				<h4 class="mr-title">mouse</h4>
+				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
+				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
+				<div class="mr-entradas"></div>
+			</div>
+
+			<div class="panels__item">
+				<h4 class="mr-title">trazo aspero</h4>
+				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
+				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
+				<div class="mr-entradas"></div>
+			</div>
 			
+			<div class="panels__item">
+				<h4 class="mr-title">trazo fino</h4>
+				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
+				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
+				<div class="mr-entradas"></div>
+			</div>
+
+			<div class="panels__item">
+				<h4 class="mr-title">aerografo</h4>
+				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
+				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
+				<div class="mr-entradas"></div>
+			</div>
+
+			<div class="panels__item">
+				<h4 class="mr-title">texto</h4>
+				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
+				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
+				<div class="mr-entradas"></div>
+			</div>
+
+			<div class="panels__item">
+				<h4 class="mr-title">linea</h4>
+				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
+				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
+				<div class="mr-entradas"></div>
+			</div>
+
+			<div class="panels__item">
+				<h4 class="mr-title">circulo</h4>
+				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
+				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
+				<div class="mr-entradas"></div>
+			</div>
+
+			<div class="panels__item">
+				<h4 class="mr-title">rectángulo</h4>
+				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
+				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
+				<div class="mr-entradas"></div>
+			</div>
+
 		</div>
 	</div>
 	<script src="js/jquery-3.3.1.min.js"></script>

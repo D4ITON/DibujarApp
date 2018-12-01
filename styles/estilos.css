@@ -62,9 +62,21 @@ body{
 /*.no-active{
 	color: #000;
 }*/
-.active{
-	color: #10B22B;
+.menu-left .active{
+	color: red;
 }
-
+/* CLASE PARA LOS PANELES */
+.panels{
+	border: 1px solid #ccc;
+	padding: 1em;
+}
+.panels__item{
+	position: absolute;
+	left: -5000px;
+}
+.panels__item.active{
+	position: relative;
+	left: 0;
+}
 
 

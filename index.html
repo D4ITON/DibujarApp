@@ -12,16 +12,13 @@
 			<h1 class="header-title">Untitled</h1>
 			<a id="download" class="button" download="download.png" href="#" target="_blank">Descargar</a>
 		</div>
-		<canvas class="canvas" id="canvas" width="900" height="500"></canvas>
+		<canvas class="canvas" id="canvas" width="850" height="500"></canvas>
 		<div class="menu-left tabs" id="tabs">
 			<button id="funcion_01" class="tabs__item active" >mouse</button>
-			<button id="funcion_02" class="tabs__item">aspero</button>
-			<button id="funcion_03" class="tabs__item">trazo fino</button>
-			<button id="funcion_04" class="tabs__item">aerografo</button>
-			<button id="funcion_05" class="tabs__item">texto</button>
-			<button id="funcion_06" class="tabs__item">linea</button>
-			<button id="funcion_07" class="tabs__item">circulo</button>
-			<button id="funcion_08" class="tabs__item">rectangulo</button>
+			<button id="funcion_02" class="tabs__item">trazo</button>
+			<button id="funcion_03" class="tabs__item">linea</button>
+			<button id="funcion_04" class="tabs__item">circulo</button>
+			<button id="funcion_05" class="tabs__item">elipse</button>
 			<button id="funcion_09" >limpiar</button>
 		</div>
 		<div class="menu-right panels">
@@ -33,52 +30,64 @@
 			</div>
 
 			<div class="panels__item">
-				<h4 class="mr-title">trazo aspero</h4>
+				<h4 class="mr-title">trazo mano alzada</h4>
 				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
 				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
 				<div class="mr-entradas"></div>
 			</div>
 			
+
 			<div class="panels__item">
-				<h4 class="mr-title">trazo fino</h4>
+				<h4 class="mr-title">línea</h4>
 				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
 				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
-				<div class="mr-entradas"></div>
+				<div class="mr-entradas">
+					<input class="input-group" placeholder="xi" id="xi">
+					<input class="input-group" placeholder="yi" id="yi">
+					<input class="input-group" placeholder="xf" id="xf">
+					<input class="input-group" placeholder="yf" id="yf">
+					<input type="button" 
+						id="btn-submit-linea" 
+						class="btn btn-primary btn-sm" 
+						style="display: inline;"
+						value="Enviar">
+					</input>
+				</div>
 			</div>
 
 			<div class="panels__item">
-				<h4 class="mr-title">aerografo</h4>
+				<h4 class="mr-title">círculo</h4>
 				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
 				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
-				<div class="mr-entradas"></div>
+				<div class="mr-entradas">
+					<input class="input-group" placeholder="xc" id="xc" value="150">
+					<input class="input-group" placeholder="yc" id="yc" value="150">
+					<input class="input-group" placeholder="r" id="r" value="50">
+					<input type="button" 
+						id="btn-submit-circulo" 
+						class="btn btn-primary btn-sm" 
+						style="display: inline;"
+						value="Enviar">
+					</input>
+				</div>
 			</div>
 
 			<div class="panels__item">
-				<h4 class="mr-title">texto</h4>
+				<h4 class="mr-title">elipse</h4>
 				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
 				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
-				<div class="mr-entradas"></div>
-			</div>
-
-			<div class="panels__item">
-				<h4 class="mr-title">linea</h4>
-				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
-				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
-				<div class="mr-entradas"></div>
-			</div>
-
-			<div class="panels__item">
-				<h4 class="mr-title">circulo</h4>
-				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
-				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
-				<div class="mr-entradas"></div>
-			</div>
-
-			<div class="panels__item">
-				<h4 class="mr-title">rectángulo</h4>
-				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
-				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
-				<div class="mr-entradas"></div>
+				<div class="mr-entradas">
+					<input class="input-group" placeholder="xce" id="xce" value="150">
+					<input class="input-group" placeholder="yce" id="yce" value="150">
+					<input class="input-group" placeholder="a" id="a" value="50">
+					<input class="input-group" placeholder="b" id="b" value="100">
+					<input type="button" 
+						id="btn-submit-elipse" 
+						class="btn btn-primary btn-sm" 
+						style="display: inline;"
+						value="Enviar">
+					</input>
+				</div>
 			</div>
 
 		</div>

@@ -1,22 +1,6 @@
-/*
-	@título   : Interfaz basada en "Adobe XD CC"
-	@fecha    : 26.11.2018
-	@tipo 	  : JavaScript
-	@autor    : DALTHON
-	@versión  : 0.0.5
-	@curso    : CAD
-*/
 
 // variables
 var mouse = $("#funcion_01");
-var trazo_aspero = $("#funcion_02");
-var trazo_fino = $("#funcion_03");
-var aerografo = $("#funcion_04");
-var texto = $("#funcion_05");
-var linea = $("#funcion_06");
-var circulo = $("#funcion_07");
-// var guardar = $("#funcion_08");
-var rectangulo = $("#funcion_08");
 var limpiar_scren = $("#funcion_09");
 
 var limpiar_scren_id = limpiar_scren.attr("id");

@@ -99,3 +99,17 @@ body{
 	display: inline;
 }
 
+.panels__item .mr-title{
+	text-align: center;
+}
+.panels__item .mr-descripcion{
+	text-align: center;
+	padding: 15px;
+}
+.panels__item .mr-imagen{
+	text-align: center;
+	margin-bottom: 15px; 
+}
+.panels__item .mr-entradas{
+	text-align: center;
+}

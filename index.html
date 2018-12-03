@@ -14,7 +14,7 @@
 		</div>
 		<canvas class="canvas" id="canvas" width="850" height="500"></canvas>
 		<div class="menu-left tabs" id="tabs">
-			<button id="funcion_01" class="tabs__item active" >mouse</button>
+			<button id="funcion_01" class="tabs__item active" >select</button>
 			<button id="funcion_02" class="tabs__item">trazo</button>
 			<button id="funcion_03" class="tabs__item">linea</button>
 			<button id="funcion_04" class="tabs__item">circulo</button>
@@ -23,24 +23,24 @@
 		</div>
 		<div class="menu-right panels">
 			<div class="panels__item active">
-				<h4 class="mr-title">mouse</h4>
+				<h4 class="mr-title">SELECTOR</h4>
 				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
-				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
+				<div class="mr-imagen"><img src="svg/selector.png" alt=""></div>
 				<div class="mr-entradas"></div>
 			</div>
 
 			<div class="panels__item">
-				<h4 class="mr-title">trazo mano alzada</h4>
+				<h4 class="mr-title">TRAZO A MANO ALZADA</h4>
 				<p class="mr-descripcion">Arrastra con el mouse dentro del espacio de trabajo para generar  la línea</p>
-				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
+				<div class="mr-imagen"><img src="svg/trazo.png" alt=""></div>
 				<div class="mr-entradas"></div>
 			</div>
 			
 
 			<div class="panels__item">
-				<h4 class="mr-title">línea</h4>
+				<h4 class="mr-title">TRAZADO DE LÍNEAS</h4>
 				<p class="mr-descripcion">Ingresa los indices puntos x,y iniciales y finales para generar una linea recta</p>
-				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
+				<div class="mr-imagen"><img src="svg/linea.png" alt=""></div>
 				<div class="mr-entradas">
 					<select id="algoritmos_linea">
 						<option value="0">método directo</option>
@@ -61,9 +61,9 @@
 			</div>
 
 			<div class="panels__item">
-				<h4 class="mr-title">Trazado de círculos</h4>
+				<h4 class="mr-title">TRAZADO DE CÍRCULOS</h4>
 				<p class="mr-descripcion">Estos son realizado por diferentes metodos, necesita la coordenada xc, yc y r que son el centro y radio de la circunferencia</p>
-				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
+				<div class="mr-imagen"><img src="svg/circle.png" alt=""></div>
 				<div class="mr-entradas">
 					<select id="algoritmos_circulo">
 						<option value="0">Representación Implícita</option>
@@ -85,9 +85,9 @@
 			</div>
 
 			<div class="panels__item">
-				<h4 class="mr-title">Trazado de elipse</h4>
+				<h4 class="mr-title">TRAZADO DE ELIPSES</h4>
 				<p class="mr-descripcion">Requiere la coordenada central xc, yc y los dos radios, a y b.</p>
-				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
+				<div class="mr-imagen"><img src="svg/elipse.png" alt=""></div>
 				<div class="mr-entradas">
 					<input class="input-group" placeholder="xce" id="xce" value="150">
 					<input class="input-group" placeholder="yce" id="yce" value="150">

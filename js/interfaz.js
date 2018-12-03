@@ -1,7 +1,7 @@
 
 // variables
 var mouse = $("#funcion_01");
-var limpiar_scren = $("#funcion_09");
+var limpiar_scren = $("#funcion_limpiar");
 
 var limpiar_scren_id = limpiar_scren.attr("id");
 /* AGREGAR CLASE ACTIVE A LA FUNCION SELECCIONADA  */
@@ -35,6 +35,9 @@ $(function (){
 
 		}, delayInMilliseconds);
 
+	});
+	limpiar_scren.on("click", function(){
+		limpiar_pantalla();
 	});
 });
 

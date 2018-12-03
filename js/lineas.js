@@ -16,7 +16,7 @@ function dibujar_trazo() {
 
   limpiar.addEventListener('click', function(evt) {
     dibujar = false;
-    ctx.clearRect(0, 0, cw, ch);
+    // ctx.clearRect(0, 0, cw, ch);
     Trazados.length = 0;
     puntos.length = 0;
   }, false);
@@ -34,11 +34,13 @@ function dibujar_trazo() {
   }, false);
 
   canvas.addEventListener('mouseup', function(evt) {
-    redibujarTrazados();
+    // redibujarTrazados();
+    dibujar = false;
   }, false);
 
   canvas.addEventListener("mouseout", function(evt) {
-    redibujarTrazados();
+    // redibujarTrazados();
+    dibujar = false;
   }, false);
 
   canvas.addEventListener("mousemove", function(evt) {
@@ -87,7 +89,7 @@ function dibujar_trazo() {
 
   function redibujarTrazados(){
     dibujar = false;
-    ctx.clearRect(0, 0, cw, ch);
+    // ctx.clearRect(0, 0, cw, ch);
     reducirArray(factorDeAlisamiento,puntos);
     for(var i = 0; i < Trazados.length; i++)
       alisarTrazado(Trazados[i]);
@@ -95,14 +97,16 @@ function dibujar_trazo() {
 
 }
 
-/*==========================================================*/
-/*-----------------         LINEAS         -----------------*/
-/*==========================================================*/
+/*========================================================================================*/
+/*--------------------------------         LINEAS         --------------------------------*/
+/*========================================================================================*/
 
 /*-----------------MÉTODO DIRECTO-----------------*/
 /*------------------------------------------------*/
-function dibujarLinea(xi,yi,xf,yf) 
+function dibujarLineaDirecto(xi,yi,xf,yf) 
 {
+	console.time('LIN-DIRECTO');
+	// console.log('metodo directo');
 	var v = validados(xi,yi,xf,yf);
 	var m = (v.yf-v.yi)/(v.xf-v.xi);
 	var b = v.yi - m*v.xi;
@@ -110,15 +114,18 @@ function dibujarLinea(xi,yi,xf,yf)
 	for (var i = v.xi ; i <= v.xf; i++) {
 		var y = (m*i)+b;
 		ctx.putImageData(imgData, i, Math.round(y));
-		console.log(i);
+		// console.log(i);
 	}
-
+	console.timeEnd('LIN-DIRECTO');
+	
 }
 /*------------------------------------------------*/
 /*-----------------ADD SIMPLE-----------------*/
 /*------------------------------------------------*/
 function dibujarLineaAddSimple(xi,yi,xf,yf)
 {
+	console.time('LIN-ADDSIMPLE');
+	// console.log('metodo add simple');
 	var m = (yf-yi)/(xf-xi);
 	if ( ((Math.abs(m))<1 && xi>xf) ||  ((Math.abs(m))<1 && yi>yf) ) 
 	{
@@ -151,6 +158,7 @@ function dibujarLineaAddSimple(xi,yi,xf,yf)
 	}
 	ctx.putImageData(imgData, xf, yf);
 
+	console.timeEnd('LIN-ADDSIMPLE');
 }
 
 /*------------------------------------------------*/
@@ -159,9 +167,11 @@ function dibujarLineaAddSimple(xi,yi,xf,yf)
 
 function dibujarLineaADDEntero(xi,yi,xf,yf)
 {
+	console.time('LIN-ADDENTERO');
+	// console.log('metodo add entero');
 	var dy= yf-yi;
 	var dx= xf-xi;
-	console.log(xi,yi,xf,yf);
+	// console.log(xi,yi,xf,yf);
 	if( (Math.abs(dy) > Math.abs(dx) && yi>yf) || (Math.abs(dy) < Math.abs(dx) && xi>xf) )
 	{
 		var aux,
@@ -172,7 +182,7 @@ function dibujarLineaADDEntero(xi,yi,xf,yf)
 			yf = yi;
 			yi = aux;
 	}
-	console.log(xi,yi,xf,yf);
+	// console.log(xi,yi,xf,yf);
 	var x = xi;
 	var y = yi;
 	var e = 0;
@@ -285,12 +295,13 @@ function dibujarLineaADDEntero(xi,yi,xf,yf)
 
 
 	ctx.putImageData(imgData,xf,yf); //dibuja ultimo punto
+	console.timeEnd('LIN-ADDENTERO');
 }
 
 
-/*==========================================================*/
-/*-----------------        CIRCULOS        -----------------*/
-/*==========================================================*/
+/*=======================================================================================*/
+/*-------------------------------        CIRCULOS        -------------------------------*/
+/*=======================================================================================*/
 
 
 /*----------------------------------------------------------*/
@@ -300,7 +311,9 @@ function dibujarLineaADDEntero(xi,yi,xf,yf)
 
 function dibujarCirculoImplicita(xc,yc,r)
 {
-	console.log(xc,yc,r); // esta recibiendo los valores
+	console.time('CIR-IMPLICITA');
+	// console.log('representacion implicita');
+	// console.log(xc,yc,r); // esta recibiendo los valores
 	var ys,yi,xi,p,xj;
 	ys=yi=yc;
 	xi=xj=xc;
@@ -315,6 +328,7 @@ function dibujarCirculoImplicita(xc,yc,r)
 		ctx.putImageData(imgData,xj,yi);
 		xj=xj-1;
 	}
+	console.timeEnd('CIR-IMPLICITA');
 }
 
 /*----------------------------------------------------------*/
@@ -323,7 +337,9 @@ function dibujarCirculoImplicita(xc,yc,r)
 
 function circ_polar(xc,yc,r)
 {
-	console.log(xc,yc,r); // esta recibiendo los valores
+	console.time('CIR-POLAR');
+	// console.log('parametrica polar');
+	// console.log(xc,yc,r); // esta recibiendo los valores
 	var x,y,i;
 	for (var i = 1; i <=360; i++) {
 		x=xc+r*Math.cos(i/r);
@@ -332,6 +348,7 @@ function circ_polar(xc,yc,r)
 		x=x+1;
 		y=y+1;
 	}
+	console.timeEnd('CIR-POLAR');
 }
 
 /*----------------------------------------------------------*/
@@ -340,6 +357,8 @@ function circ_polar(xc,yc,r)
 
 function circ_incremental(xc,yc,r)
 {
+	console.time('CIR-INCREMENTAL');
+	// console.log('trazado incremental');
 	var x,y,i,xtemp;
 	const dalfa=1/r;
 	const cost = Math.cos(dalfa);
@@ -358,6 +377,7 @@ function circ_incremental(xc,yc,r)
 		x=(x*cost-y*sent);
 		y=(y*cost+xtemp*sent);
 	}
+	console.timeEnd('CIR-INCREMENTAL');
 }
 
 
@@ -367,6 +387,8 @@ function circ_incremental(xc,yc,r)
 
 function circ_segmento(xc,yc,r)
 {
+	console.time('CIR-SEGMENTO');
+	// console.log('segmentos de recta');
 	var x,y,i;
 	const dos_pi=2;
 	const pi=1;
@@ -377,7 +399,7 @@ function circ_segmento(xc,yc,r)
 	y=r;
 
 	if (ctx) {
-		// ctx.lineWidth = 1;
+		ctx.lineWidth = 1;
 		ctx.strokeStyle = "#000";
 		ctx.beginPath();
 		ctx.moveTo(xc+x, Math.round(yc+y*pi));
@@ -388,11 +410,12 @@ function circ_segmento(xc,yc,r)
 			y=(y*cost+xtemp*sent);
 			// ctx.putImageData(imgData, Math.round(xc+x), Math.round(yc+y*pi));
 			ctx.lineTo(Math.round(xc+x), Math.round(yc+y*pi));
-			console.log(i);
+			// console.log(i);
 
 		}
 			ctx.stroke();
 	}
+	console.timeEnd('CIR-SEGMENTO');
 }
 
 /*----------------------------------------------------------*/
@@ -401,7 +424,8 @@ function circ_segmento(xc,yc,r)
 
 function circulo_bresenham(xc,yc,r)
 {
-	console.log('BRESENHAM');
+	console.time('CIR-BRESENHAM');
+	// console.log('BRESENHAM');
 	var x = xc;
 	var x2 = xc;
 	var y = yc-r;
@@ -435,7 +459,7 @@ function circulo_bresenham(xc,yc,r)
 			yi=yi-1;
 			x=x+1;
 			x2=x2-1;
-			console.log('b');
+			// console.log('b');
 		}
 		else{
 			a=x+1;
@@ -451,9 +475,10 @@ function circulo_bresenham(xc,yc,r)
 
 			x=x+1;
 			x2=x2-1;
-			console.log('a');
+			// console.log('a');
 		}
 	}
+	console.timeEnd('CIR-BRESENHAM');
 }
 
 /*==========================================================*/
@@ -462,6 +487,7 @@ function circulo_bresenham(xc,yc,r)
 
 function dibujarElipse(xc,yc,a,b)
 {
+	console.time('ELIPSE-SEGMENTO');
 	var x,y,i;
 	const dos_pi=2;
 	const pi=1;
@@ -486,6 +512,7 @@ function dibujarElipse(xc,yc,a,b)
 		}
 			ctx.stroke();
 	}
+	console.timeEnd('ELIPSE-SEGMENTO');	
 }
 
 

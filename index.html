@@ -9,7 +9,7 @@
 <body>
 	<div class="main-container tabs-container">
 		<div class="header">
-			<h1 class="header-title">Untitled</h1>
+			<h1 class="header-title">DibujarApp</h1>
 			<a id="download" class="button" download="download.png" href="#" target="_blank">Descargar</a>
 		</div>
 		<canvas class="canvas" id="canvas" width="850" height="500"></canvas>
@@ -19,7 +19,7 @@
 			<button id="funcion_03" class="tabs__item">linea</button>
 			<button id="funcion_04" class="tabs__item">circulo</button>
 			<button id="funcion_05" class="tabs__item">elipse</button>
-			<button id="funcion_09" >limpiar</button>
+			<button id="funcion_limpiar" >limpiar</button>
 		</div>
 		<div class="menu-right panels">
 			<div class="panels__item active">
@@ -42,10 +42,15 @@
 				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
 				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
 				<div class="mr-entradas">
-					<input class="input-group" placeholder="xi" id="xi">
-					<input class="input-group" placeholder="yi" id="yi">
-					<input class="input-group" placeholder="xf" id="xf">
-					<input class="input-group" placeholder="yf" id="yf">
+					<select id="algoritmos_linea">
+						<option value="0">método directo</option>
+						<option value="1">Analizador Diferencial Digial Simple</option>
+						<option value="2">Analizador Diferencial Digital Entero</option>
+					</select>
+					<input class="input-group" placeholder="xi" id="xi" value="0">
+					<input class="input-group" placeholder="yi" id="yi" value="0">
+					<input class="input-group" placeholder="xf" id="xf" value="850">
+					<input class="input-group" placeholder="yf" id="yf" value="500">
 					<input type="button" 
 						id="btn-submit-linea" 
 						class="btn btn-primary btn-sm" 
@@ -60,6 +65,13 @@
 				<p class="mr-descripcion">Selecciona las opciones del menú izquierdo o imprime el espacio de trabajo</p>
 				<div class="mr-imagen"><img src="https://picsum.photos/200/200" alt=""></div>
 				<div class="mr-entradas">
+					<select id="algoritmos_circulo">
+						<option value="0">Representación Implícita</option>
+						<option value="1">Representación Paramétrica Polar</option>
+						<option value="2">Trazado Incremental</option>
+						<option value="3">Segmentos de Recta</option>
+						<option value="4">Bresenham</option>
+					</select>
 					<input class="input-group" placeholder="xc" id="xc" value="150">
 					<input class="input-group" placeholder="yc" id="yc" value="150">
 					<input class="input-group" placeholder="r" id="r" value="50">

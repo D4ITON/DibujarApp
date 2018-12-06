@@ -390,8 +390,8 @@ function circ_segmento(xc,yc,r)
 	console.time('CIR-SEGMENTO');
 	// console.log('segmentos de recta');
 	var x,y,i;
-	const dos_pi=2;
-	const pi=1;
+	const dos_pi=6.28;
+	const pi=3.14;
 	const dalfa=dos_pi/16*r;
 	const cost=Math.cos(dalfa);
 	const sent=Math.sin(dalfa);

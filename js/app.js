@@ -34,16 +34,71 @@ var option;
           valores_linea();
           document.getElementById('btn-submit-linea').onclick = function(){
             var p = valores_linea();
+            var PuntosDirecto = [];
+            var PuntosSimple = [];
+            var PuntosEntero = [];
             // console.log(algoritmos_linea_valor);
             switch (algoritmos_linea_valor) {
               case '0':
-                dibujarLineaDirecto(p.xi,p.yi,p.xf,p.yf);
+                //linea por interfaz
+                const lineaDirecto = new Linea(p.xi,p.yi,p.xf,p.yf);
+                lineaDirecto.dibujarLineaDirecto();
+                //linea por mouse
+                canvas.addEventListener('mousedown', function __listener(evt) {
+                
+                var m = oMousePos(canvas,evt);
+                PuntosDirecto.push(m.x,m.y)
+                console.log(PuntosDirecto);
+                  if (PuntosDirecto.length == 4) {
+                    const lineDirecto = new Linea(PuntosDirecto[0],PuntosDirecto[1],PuntosDirecto[2],PuntosDirecto[3]);
+                    lineDirecto.dibujarLineaDirecto();
+                    PuntosDirecto.length = 0;
+                  }
+                  if (algoritmos_linea_valor != 0) {
+                    canvas.removeEventListener("mousedown", __listener, false);
+                  }
+                }, false);
+                //fin linea por mouse
                 break;
               case '1':
-                dibujarLineaAddSimple(p.xi,p.yi,p.xf,p.yf);
+                //linea por interfaz
+                const lineaAddSimple = new Linea(p.xi,p.yi,p.xf,p.yf);
+                lineaAddSimple.dibujarLineaAddSimple();
+                //linea por mouse
+                canvas.addEventListener('mousedown', function __listener(evt) {
+                var m = oMousePos(canvas,evt);
+                PuntosSimple.push(m.x,m.y)
+                console.log(PuntosSimple);
+                  if (PuntosSimple.length == 4) {
+                    const lineDirecto = new Linea(PuntosSimple[0],PuntosSimple[1],PuntosSimple[2],PuntosSimple[3]);
+                    lineDirecto.dibujarLineaDirecto();
+                    PuntosSimple.length = 0;
+                  }
+                  if (algoritmos_linea_valor != 1) {
+                    canvas.removeEventListener("mousedown", __listener, false);
+                  }
+                }, false);
+                //fin linea por mouse
                 break;
               case '2':
-                dibujarLineaADDEntero(p.xi,p.yi,p.xf,p.yf);
+                //linea por interfaz
+                const lineaAddEntero = new Linea(p.xi,p.yi,p.xf,p.yf);
+                lineaAddEntero.dibujarLineaADDEntero();
+                //linea por mouse
+                canvas.addEventListener('mousedown', function __listener(evt) {
+                var m = oMousePos(canvas,evt);
+                PuntosEntero.push(m.x,m.y)
+                console.log(PuntosEntero);
+                  if (PuntosEntero.length == 4) {
+                    const lineDirecto = new Linea(PuntosEntero[0],PuntosEntero[1],PuntosEntero[2],PuntosEntero[3]);
+                    lineDirecto.dibujarLineaADDEntero();
+                    PuntosEntero.length = 0;
+                  }
+                  if (algoritmos_linea_valor != 2) {
+                    canvas.removeEventListener("mousedown", __listener, false);
+                  }
+                }, false);
+                //fin linea por mouse
                 break;
               default:
                 console.log('metodo linea invalido');
@@ -55,22 +110,130 @@ var option;
           console.log('círculo');
           document.getElementById('btn-submit-circulo').onclick = function(){
             var p = valores_circulo();
+            var PuntosCirculo = [];
             // console.log(algoritmos_circulo_valor);
             switch (algoritmos_circulo_valor) {
-              case '0':
-                dibujarCirculoImplicita(p.xc,p.yc,p.r);
+              case '0':{
+                  //circulo por interfaz
+                  const circuloImplicita = new Circulo(p.xc,p.yc,p.r);
+                  circuloImplicita.dibujarCirculoImplicita();
+                  //circulo por mouse
+
+                  canvas.addEventListener('mousedown', function __listener(evt) {
+                  var m = oMousePos(canvas,evt);
+                  PuntosCirculo.push(m.x,m.y);
+                  var radioImplicita = parseInt(document.getElementById("r").value);
+                  PuntosCirculo.push(radioImplicita);
+                  console.log(PuntosCirculo);
+                    if (PuntosCirculo.length == 3) {
+                      const circleImplicita = new Circulo(PuntosCirculo[0],PuntosCirculo[1],PuntosCirculo[2]);
+                      circleImplicita.dibujarCirculoImplicita();
+                      PuntosCirculo.length = 0;
+                    }
+                    if (algoritmos_circulo_valor != 0) {
+                      canvas.removeEventListener("mousedown", __listener, false);
+                    }
+                  }, false);
+
+                }
                 break;
               case '1':
-                circ_polar(p.xc,p.yc,p.r);
+                {
+                  //circulo por interfaz
+                  const circuloPolar = new Circulo(p.xc,p.yc,p.r);
+                  circuloPolar.circ_polar();
+                  //circulo por mouse
+
+                  canvas.addEventListener('mousedown', function __listener(evt) {
+                  var m = oMousePos(canvas,evt);
+                  PuntosCirculo.push(m.x,m.y);
+                  var radioImplicita = parseInt(document.getElementById("r").value);
+                  PuntosCirculo.push(radioImplicita);
+                  console.log(PuntosCirculo);
+                    if (PuntosCirculo.length == 3) {
+                      const circlePolar = new Circulo(PuntosCirculo[0],PuntosCirculo[1],PuntosCirculo[2]);
+                      circlePolar.circ_polar();
+                      PuntosCirculo.length = 0;
+                    }
+                    if (algoritmos_circulo_valor != 1) {
+                      canvas.removeEventListener("mousedown", __listener, false);
+                    }
+                  }, false);
+
+                }
                 break;
               case '2':
-                circ_incremental(p.xc,p.yc,p.r);
+                {
+                  //circulo por interfaz
+                  const circuloIncremental = new Circulo(p.xc,p.yc,p.r);
+                  circuloIncremental.circ_incremental();
+                  //circulo por mouse
+
+                  canvas.addEventListener('mousedown', function __listener(evt) {
+                  var m = oMousePos(canvas,evt);
+                  PuntosCirculo.push(m.x,m.y);
+                  var radioImplicita = parseInt(document.getElementById("r").value);
+                  PuntosCirculo.push(radioImplicita);
+                  console.log(PuntosCirculo);
+                    if (PuntosCirculo.length == 3) {
+                      const circleIncremental = new Circulo(PuntosCirculo[0],PuntosCirculo[1],PuntosCirculo[2]);
+                      circleIncremental.circ_incremental();
+                      PuntosCirculo.length = 0;
+                    }
+                    if (algoritmos_circulo_valor != 2) {
+                      canvas.removeEventListener("mousedown", __listener, false);
+                    }
+                  }, false);
+
+                }
                 break;
               case '3':
-                circ_segmento(p.xc,p.yc,p.r);
+                {
+                  //circulo por interfaz
+                  const circuloSegmento = new Circulo(p.xc,p.yc,p.r);
+                  circuloSegmento.circ_segmento();
+                  //circulo por mouse
+
+                  canvas.addEventListener('mousedown', function __listener(evt) {
+                  var m = oMousePos(canvas,evt);
+                  PuntosCirculo.push(m.x,m.y);
+                  var radioImplicita = parseInt(document.getElementById("r").value);
+                  PuntosCirculo.push(radioImplicita);
+                  console.log(PuntosCirculo);
+                    if (PuntosCirculo.length == 3) {
+                      const circleSegmento = new Circulo(PuntosCirculo[0],PuntosCirculo[1],PuntosCirculo[2]);
+                      circleSegmento.circ_segmento();
+                      PuntosCirculo.length = 0;
+                    }
+                    if (algoritmos_circulo_valor != 3) {
+                      canvas.removeEventListener("mousedown", __listener, false);
+                    }
+                  }, false);
+                }
                 break;
               case '4':
-                circulo_bresenham(p.xc,p.yc,p.r);
+                {
+                  //circulo por interfaz
+                  const circuloBresenham = new Circulo(p.xc,p.yc,p.r);
+                  circuloBresenham.circulo_bresenham();
+                  //circulo por mouse
+
+                  canvas.addEventListener('mousedown', function __listener(evt) {
+                  var m = oMousePos(canvas,evt);
+                  PuntosCirculo.push(m.x,m.y);
+                  var radioImplicita = parseInt(document.getElementById("r").value);
+                  PuntosCirculo.push(radioImplicita);
+                  console.log(PuntosCirculo);
+                    if (PuntosCirculo.length == 3) {
+                      const circleBresenham = new Circulo(PuntosCirculo[0],PuntosCirculo[1],PuntosCirculo[2]);
+                      circleBresenham.circulo_bresenham();
+                      PuntosCirculo.length = 0;
+                    }
+                    if (algoritmos_circulo_valor != 4) {
+                      canvas.removeEventListener("mousedown", __listener, false);
+                    }
+                  }, false);
+                }
                 break;
               default:
                 console.log('metodo circulo invalido');
@@ -98,7 +261,6 @@ var option;
 
 /* ============= FUNCIONES DE DIBUJO ============= */
 
-/* ------ DETECCION DE LA POSICION DEL MOUSE------  */
 /* obteniendo el canvas o espacio de trabajo */
 var limpiar = document.getElementById("funcion_limpiar");
 var canvas = document.getElementById("canvas");
@@ -115,21 +277,6 @@ for ( var i = 0; i < imgData.data.length; i += 4) {
     imgData.data[i+3] = 255;
 }
 
-// document.getElementById('btn-submit').onclick = function(){
-//   var p = dibujar();
-  // console.log(p.xi,p.yi,p.xf,p.yf);
-  // console.log(p.xc,p.yc,p.r);
-
-  // dibujarLinea(p.xi,p.yi,p.xf,p.yf); // metodo directo           (ESTABLE)
-  // dibujarLineaAddSimple(p.xi,p.yi,p.xf,p.yf);  //metodo ADD SIMPLE     (ESTABLE)
-  // dibujarLineaADDEntero(p.xi,p.yi,p.xf,p.yf);  //metodo ADD ENTERO     (ESTABLE)
-  // dibujarCirculoImplicita(p.xc,p.yc,p.r); //metodo CIRCULO IMPLICITO   (ESTABLE)
-  // circ_polar(p.xc,p.yc,p.r); //metodo PARAMETRICA circ_polar         (ESTABLE)
-  // circ_incremental(p.xc,p.yc,p.r); //metodo TRAZADO INCREMENTAL      (ESTABLE)
-  // circ_segmento(p.xc,p.yc,p.r); //metodo SEGMENTOS DE RECTA        (ESTABLE)
-  // circulo_bresenham(p.xc,p.yc,p.r); //metodo BRESENHAM           (MEJORAR)
-  //dibujarElipse(p.xc,p.yc,p.a,p.b); // elipse mediante trazados     (ESTABLE)
-// }
 
 function valores_linea() {
   return {
@@ -192,4 +339,3 @@ function validados(xi,yi,xf,yf) {
 function limpiar_pantalla(){
   ctx.clearRect(0, 0, cw, ch);
 }
-
